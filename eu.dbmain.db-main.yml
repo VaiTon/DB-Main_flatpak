@@ -1,0 +1,24 @@
+app-id: eu.dbmain.db-main
+sdk: org.gnome.Sdk
+runtime: org.gnome.Platform
+runtime-version: '3.28'
+command: start.sh
+finish-args:
+  - "--socket=x11"
+  - "--share=ipc"
+  - "--filesystem=home"
+modules:
+  - name: db-main
+    buildsystem: simple
+    
+    build-commands:
+      - cd bin && find . -type f -exec install -Dm 755 "{}" "/app/bin/{}" \;
+      - cd java && find . -type f -exec install -Dm 755 "{}" "/app/java/{}" \;
+      - install -D start.sh /app/bin/start.sh
+    
+    sources:
+      - type: archive
+        url: https://projects.info.unamur.be/dbmain/files/dbm-1102-linux-amd64-setup.tar.gz
+        sha256: "8f61e6069337dc734ac6f886b224329ec943cd4dafbd888611bd806373cb3296"    
+      - type: file
+        path: start.sh
