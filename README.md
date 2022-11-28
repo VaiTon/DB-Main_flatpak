@@ -10,7 +10,7 @@ Official link: https://www.db-main.eu/
 3. Download required SDKs and runtimes:
 
 ```shell
-flatpak install --user org.freedesktop.Sdk//1.6 org.freedesktop.Platform//1.6
+flatpak install --user org.gnome.Sdk//3.28 org.gnome.Platform//3.28
 ```
 
 4. Install the application:
